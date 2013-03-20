@@ -10,6 +10,11 @@ $('#startButton').click(function(){
   $('#workPage').show();
   $('#ads').hide();
 
+  //Set up the ide
+
+  var myCodeMirrorHTML = CodeMirror.fromTextArea(htmlArea);
+  var myCodeMirrorCSS = CodeMirror.fromTextArea(cssArea);
+  var myCodeMirrorJAVASCRIPT = CodeMirror.fromTextArea(javascriptArea);
 
 });
 
