@@ -1,6 +1,7 @@
-//Initially hide the work pane
+//Initially hide the work pane and the loading bar
 
 $('#workPage').hide();
+$('#loadingBarContainer').hide();
 
 // Set up the interface swap
 
@@ -40,7 +41,42 @@ $('#homepageButton').click(function(){
 // Run button click
 
 $("#runButton").click(function() {
-   
+
+
+   /* LOADING BAR ANIMATION */
+
+   $('#loadingBarContainer').show();
+
+       setTimeout(function(){
+
+        $('.progress .bar').each(function() {
+            var me = $(this);
+            var perc = me.attr("data-percentage");
+
+            //TODO: left and right text handling
+
+            var current_perc = 0;
+
+            var progress = setInterval(function() {
+                if (current_perc>=100) {
+                    
+                    setTimeout(function(){
+                      clearInterval(progress);
+                      $('#loadingBarContainer').hide();
+                     },50); 
+                } else {
+                    current_perc +=4;
+                    me.css('width', (current_perc)+'%');
+                }
+
+                me.text((current_perc)+'%');
+
+            }, 50);
+
+        })});
+
+   $('#loadingBar').css('width', 0 +'%')
+
    var kinch = myCodeMirrorHTML.getValue();
    
    if(/* JQUERY IS SELECTED */true){
