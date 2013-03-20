@@ -11,25 +11,30 @@ $('#startButton').click(function(){
   $('#ads').hide();
 
 });
+$('#homepageButton').click(function(){
+
+  $('#startPage').show();
+  $('#workPage').hide();
+  $('#ads').show();
+
+});
 
 
 //Set up the ide
 
-  var myCodeMirrorHTML = CodeMirror.fromTextArea(htmlArea,{ 
-     mode:  "html", 
-     lineNumbers: true,
-     theme: "ambiance"}
-     );
-  var myCodeMirrorCSS = CodeMirror.fromTextArea(cssArea,{ 
-     mode: "css",
-     lineNumbers: true,
-     theme: "ambiance"}
-     );
-  var myCodeMirrorJAVASCRIPT = CodeMirror.fromTextArea(javascriptArea,{ 
-     mode: "javascript",
-     lineNumbers: true,
-     theme: "ambiance"}
-     );
+
+  var myCodeMirrorHTML =  $('#htmlArea').codemirror({
+    mode: 'html',
+    lineNumbers: true
+  });
+  var myCodeMirrorCSS = $('#cssArea').codemirror({
+    mode: 'css',
+    lineNumbers: true
+  });
+  var myCodeMirrorJAVASCRIPT = $('#javascriptArea').codemirror({
+    mode: 'javascript',
+    lineNumbers: true
+  });
 
 
 // Run button click
