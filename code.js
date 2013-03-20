@@ -10,23 +10,33 @@ $('#startButton').click(function(){
   $('#workPage').show();
   $('#ads').hide();
 
-  //Set up the ide
-
-  var myCodeMirrorHTML = CodeMirror.fromTextArea(htmlArea);
-  var myCodeMirrorCSS = CodeMirror.fromTextArea(cssArea);
-  var myCodeMirrorJAVASCRIPT = CodeMirror.fromTextArea(javascriptArea);
-
 });
 
 
+//Set up the ide
 
+  var myCodeMirrorHTML = CodeMirror.fromTextArea(htmlArea,{ 
+     mode:  "html", 
+     lineNumbers: true,
+     theme: "ambiance"}
+     );
+  var myCodeMirrorCSS = CodeMirror.fromTextArea(cssArea,{ 
+     mode: "css",
+     lineNumbers: true,
+     theme: "ambiance"}
+     );
+  var myCodeMirrorJAVASCRIPT = CodeMirror.fromTextArea(javascriptArea,{ 
+     mode: "javascript",
+     lineNumbers: true,
+     theme: "ambiance"}
+     );
 
 
 // Run button click
 
 $("#runButton").click(function() {
    
-   var kinch = $("#htmlfield").val();
+   var kinch = myCodeMirrorHTML.getValue();
    
    if(/* JQUERY IS SELECTED */true){
      
@@ -34,9 +44,9 @@ $("#runButton").click(function() {
      
    }
    
-   kinch = kinch + "<script>" + $("#jsfield").val() + "</script>";
-   kinch = ("<style type='text/css'>" + $("#cssfield").val() + "</style>") + kinch;
-   alert(kinch);
+   kinch = kinch + "<script>" + myCodeMirrorJAVASCRIPT.getValue() + "</script>";
+   kinch = ("<style type='text/css'>" + myCodeMirrorCSS.getValue() + "</style>") + kinch;
+   console.log(kinch);
    
       var $frame = $('#outputarea');
 	setTimeout( function() {
