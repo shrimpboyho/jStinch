@@ -26,14 +26,17 @@ $('#homepageButton').click(function(){
 
   var myCodeMirrorHTML =  $('#htmlArea').codemirror({
     mode: 'html',
+    theme: 'monokai',
     lineNumbers: true
   });
   var myCodeMirrorCSS = $('#cssArea').codemirror({
     mode: 'css',
+    theme: 'monokai',
     lineNumbers: true
   });
   var myCodeMirrorJAVASCRIPT = $('#javascriptArea').codemirror({
     mode: 'javascript',
+    theme: 'monokai',
     lineNumbers: true
   });
 
